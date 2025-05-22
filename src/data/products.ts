@@ -68,9 +68,9 @@ export const products: Product[] = [
 			"Design premium com câmera avançada e carregamento TurboPower.",
 		price: 2499.0,
 		images: [
+			"/images/products/edge-50-neo/front.webp",
 			"/images/products/edge-50-neo/ai.webp",
 			"/images/products/edge-50-neo/back.webp",
-			"/images/products/edge-50-neo/front.webp",
 			"/images/products/edge-50-neo/resistance.webp",
 		],
 		colors: [
