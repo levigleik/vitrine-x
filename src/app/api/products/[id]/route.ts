@@ -3,10 +3,15 @@ import { NextResponse } from "next/server";
 
 export async function GET(
 	request: Request,
-	{ params }: { params: { id: string } },
+	context: {
+		params: Promise<{
+			id: string;
+		}>;
+	},
 ) {
+	const { id } = await context.params;
 	try {
-		const product = products.find((p) => p.id === params.id);
+		const product = products.find((p) => p.id === id);
 
 		if (!product) {
 			return NextResponse.json(
