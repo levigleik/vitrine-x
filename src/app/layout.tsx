@@ -1,6 +1,7 @@
 import { fontSans } from "@/config/fonts";
 import type { Metadata, Viewport } from "next";
 import "../assets/styles/globals.css";
+import { Footer } from "@/components/Footer";
 import {
 	APP_DEFAULT_TITLE,
 	APP_DESCRIPTION,
@@ -59,7 +60,10 @@ export default function RootLayout({
 	return (
 		<html lang="pt" translate="no">
 			<body className={`${fontSans.variable} antialiased`}>
-				<Providers>{children}</Providers>
+				<Providers>
+					{children}
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);

@@ -9,14 +9,14 @@ Uma página de produto e-commerce moderna e responsiva construída com Next.js, 
 - [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitário
 - [Framer Motion](https://www.framer.com/motion/) - Biblioteca de animações
 - [PWA (Progressive Web App)](https://web.dev/progressive-web-apps/) - Para funcionalidades offline
-- [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) - Para transições suaves entre páginas
+
 
 ## 🎯 Funcionalidades
 
 - **Galeria de Imagens do Produto**
   - Imagem principal ocupando ~35% da tela
   - Navegação por miniaturas com troca dinâmica de imagens
-  - Transições suaves entre imagens usando View Transition API
+  - Transições suaves entre imagens
 
 - **Informações do Produto**
   - Exibição de título e preço
