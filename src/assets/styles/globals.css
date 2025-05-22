@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.08 0.1916 304.03);
+}
+
+.dark {
+  --background: oklch(0.001 0.1916 304.03);
+  --foreground: oklch(0.984 0.003 247.858);
+}
+
+@layer base {
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 7px;
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+      scrollbar-color: var(--secondary);
+    }
+  }
+  body {
+    @apply bg-background text-foreground h-screen w-screen overflow-x-hidden;
+  }
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.7s;
+  animation-timing-function: var(--expo-out);
+}
+
+::view-transition-new(root) {
+  animation-name: reveal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+@keyframes reveal {
+  from {
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+/* ViewTransition API styles para o ChronoStudyCard */
+::view-transition-old(chrono-card),
+::view-transition-new(chrono-card) {
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  transition: border-radius 0.3s, box-shadow 0.3s;
+  /* Você pode ajustar mais estilos para suavizar ainda mais */
+}
+
+::view-transition-old(chrono-card) {
+  z-index: 1;
+}
+::view-transition-new(chrono-card) {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(chrono-card),
+  ::view-transition-new(chrono-card) {
+    transition: none;
+  }
+}
